@@ -1,48 +1,41 @@
-# Automated Login Testing with Cucumber and Selenium
+# Continuous Integration with Jenkins for Automated Tests
 
-## Description
-This project automates the testing of a login form using Selenium WebDriver, Cucumber, and Java. The automation validates different login scenarios to ensure the application behaves as expected.
-
-## Application Under Test
-- URL: https://the-internet.herokuapp.com/login
-- Module: Login Functionality
-
-## Test Scenarios
-- Valid login with correct credentials
-- Invalid login with incorrect credentials
-- Login attempt with empty username and password
-- Data-driven invalid login using multiple test data sets (Bonus)
-
-## Bonus – Data-Driven Testing
-Data-driven testing is implemented using Cucumber Scenario Outline and Examples.
-The same login scenario is executed multiple times with different username and password combinations.
+## Project Overview
+This project demonstrates Continuous Integration (CI) using Jenkins to automatically execute Selenium WebDriver tests whenever code changes are detected in the repository.
 
 ## Tools & Technologies
-- Java
-- Selenium WebDriver
-- Cucumber (BDD)
-- JUnit
+- Jenkins (CI Server)
+- Java (JDK)
 - Maven
-- Google Chrome
+- Selenium WebDriver
+- TestNG
+- Git & GitHub
 
 ## Project Structure
-src/test/java
- ├── stepDefinitions
- └── runner
+- Selenium TestNG tests for web application login
+- Jenkins Pipeline configured to:
+  - Checkout code from GitHub
+  - Build project using Maven
+  - Execute automated tests
+  - Publish test reports
 
-src/test/resources
- └── features
+## Jenkins Pipeline Flow
+1. Code pushed to GitHub
+2. Jenkins pulls latest code
+3. Maven executes `mvn clean test`
+4. Test results are generated and published
+5. Build marked SUCCESS or FAILURE
 
-pom.xml
-README.md
+## Execution Instructions
+1. Install Java, Maven, and Jenkins
+2. Clone the repository
+3. Configure Jenkins job with pipeline
+4. Run the pipeline manually or on code change
 
-## How to Run
-1. Import the project into Eclipse as a Maven project
-2. Configure Java 11 in Eclipse
-3. Open TestRunner.java
-4. Run as JUnit Test
+## Outcome
+- Automated CI pipeline implemented successfully
+- Selenium tests executed without manual intervention
+- Test results visible in Jenkins dashboard
 
-## Expected Result
-- Chrome browser opens automatically
-- All login scenarios including data-driven tests are executed
-- Results are displayed in the JUnit console
+## Notes
+For CI stability, Selenium TestNG tests are executed as part of the pipeline.
