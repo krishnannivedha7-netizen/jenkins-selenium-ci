@@ -15,7 +15,7 @@ pipeline {
 
         stage('Run Selenium Tests') {
             steps {
-                sh 'mvn clean test'
+                bat 'mvn clean test'
             }
         }
     }
@@ -25,10 +25,10 @@ pipeline {
             junit 'target/surefire-reports/*.xml'
         }
         success {
-            echo 'Build Successful'
+            echo 'Build Successful - Tests Passed'
         }
         failure {
-            echo 'Build Failed'
+            echo 'Build Failed - Check Console Output'
         }
     }
 }
